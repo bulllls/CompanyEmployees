@@ -12,20 +12,12 @@ import CoreData
 class CompanyTableViewController: UIViewController {
     
     @IBOutlet weak var companyTable: UITableView!
-    var company = [Company]()
-    
-    lazy var frc: NSFetchedResultsController<Company> = {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { fatalError() }
-        let context = appDelegate.persistentContainer.viewContext
-        let request = Company.nameCompanyfetchRequest()
-        let controller = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-        return controller
-    }()
+    let manager = DataManager()
     
     override func viewWillAppear(_ animated: Bool) {
       super.viewWillAppear(animated)
       
-      try? frc.performFetch()
+        try? manager.frc.performFetch()
     }
     
     override func viewDidLoad() {
@@ -34,15 +26,15 @@ class CompanyTableViewController: UIViewController {
         companyTable.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         companyTable.dataSource = self
         companyTable.delegate = self
-        frc.delegate = self
+        manager.frc.delegate = self
         title = "Company"
     }
     
     
     func saveCompany(companyName: String) {
-        let newCompany = Company(context: frc.managedObjectContext)
+        let newCompany = Company(context: manager.frc.managedObjectContext)
         newCompany.name = companyName
-        try? frc.managedObjectContext.save()
+        try? manager.frc.managedObjectContext.save()
     }
     
     @IBAction func addCompanyInTable(_ sender: UIBarButtonItem) {
@@ -68,16 +60,16 @@ class CompanyTableViewController: UIViewController {
 extension CompanyTableViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return frc.sections?.count ?? 0
+        return manager.frc.sections?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return frc.sections?[section].numberOfObjects ?? 0
+        return manager.frc.sections?[section].numberOfObjects ?? 0
     }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = frc.object(at: indexPath).name
+        cell.textLabel?.text = manager.frc.object(at: indexPath).name
         return cell
     }
     
@@ -87,11 +79,10 @@ extension CompanyTableViewController: UITableViewDataSource {
      }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-       let object = frc.object(at: indexPath)
-       frc.managedObjectContext.delete(object)
-       try? frc.managedObjectContext.save()
+        let object = manager.frc.object(at: indexPath)
+        manager.frc.managedObjectContext.delete(object)
+        try? manager.frc.managedObjectContext.save()
      }
-    
 }
 
 extension CompanyTableViewController: UITableViewDelegate {
@@ -116,9 +107,9 @@ extension CompanyTableViewController: NSFetchedResultsControllerDelegate {
     case .delete:
       companyTable.deleteRows(at: [indexPath!], with: .fade)
     case .move:
-      companyTable.moveRow(at: indexPath!, to: newIndexPath!)
+     companyTable.moveRow(at: indexPath!, to: newIndexPath!)
     case .update:
-      companyTable.reloadRows(at: [indexPath!], with: .fade)
+     companyTable.reloadRows(at: [indexPath!], with: .fade)
     default:
         print("Error")
     }
@@ -129,3 +120,4 @@ extension CompanyTableViewController: NSFetchedResultsControllerDelegate {
   }
   
 }
+

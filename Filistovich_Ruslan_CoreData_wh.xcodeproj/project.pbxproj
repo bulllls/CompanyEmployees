@@ -18,6 +18,7 @@
 		444040E12370BBE500A9C9ED /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444040DD2370BBE500A9C9ED /* Person+CoreDataProperties.swift */; };
 		444040E22370BBE500A9C9ED /* Company+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444040DE2370BBE500A9C9ED /* Company+CoreDataClass.swift */; };
 		444040E32370BBE500A9C9ED /* Company+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444040DF2370BBE500A9C9ED /* Company+CoreDataProperties.swift */; };
+		444C19E323789ACE009219A6 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444C19E223789ACE009219A6 /* DataManager.swift */; };
 		444F9ED323757980004ED5C6 /* PersonCompanyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444F9ED223757980004ED5C6 /* PersonCompanyTableViewController.swift */; };
 		444F9ED523757CC0004ED5C6 /* PersonCompanyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444F9ED423757CBF004ED5C6 /* PersonCompanyTableViewCell.swift */; };
 		444F9ED72375A644004ED5C6 /* EditPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444F9ED62375A644004ED5C6 /* EditPersonViewController.swift */; };
@@ -37,6 +38,7 @@
 		444040DD2370BBE500A9C9ED /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		444040DE2370BBE500A9C9ED /* Company+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Company+CoreDataClass.swift"; sourceTree = "<group>"; };
 		444040DF2370BBE500A9C9ED /* Company+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Company+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		444C19E223789ACE009219A6 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		444F9ED223757980004ED5C6 /* PersonCompanyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCompanyTableViewController.swift; sourceTree = "<group>"; };
 		444F9ED423757CBF004ED5C6 /* PersonCompanyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCompanyTableViewCell.swift; sourceTree = "<group>"; };
 		444F9ED62375A644004ED5C6 /* EditPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPersonViewController.swift; sourceTree = "<group>"; };
@@ -77,7 +79,6 @@
 				444040DE2370BBE500A9C9ED /* Company+CoreDataClass.swift */,
 				444040DF2370BBE500A9C9ED /* Company+CoreDataProperties.swift */,
 				442F850A236EC7E6007B3CD1 /* AppDelegate.swift */,
-				442F850C236EC7E6007B3CD1 /* SceneDelegate.swift */,
 				442F850E236EC7E6007B3CD1 /* CompanyTableViewController.swift */,
 				444F9ED223757980004ED5C6 /* PersonCompanyTableViewController.swift */,
 				444F9ED423757CBF004ED5C6 /* PersonCompanyTableViewCell.swift */,
@@ -87,6 +88,8 @@
 				442F8518236EC7EB007B3CD1 /* LaunchScreen.storyboard */,
 				442F851B236EC7EB007B3CD1 /* Info.plist */,
 				442F8513236EC7E6007B3CD1 /* Filistovich_Ruslan_CoreData_wh.xcdatamodeld */,
+				442F850C236EC7E6007B3CD1 /* SceneDelegate.swift */,
+				444C19E223789ACE009219A6 /* DataManager.swift */,
 			);
 			path = Filistovich_Ruslan_CoreData_wh;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				442F850F236EC7E6007B3CD1 /* CompanyTableViewController.swift in Sources */,
+				444C19E323789ACE009219A6 /* DataManager.swift in Sources */,
 				442F850B236EC7E6007B3CD1 /* AppDelegate.swift in Sources */,
 				444040E32370BBE500A9C9ED /* Company+CoreDataProperties.swift in Sources */,
 				444040E12370BBE500A9C9ED /* Person+CoreDataProperties.swift in Sources */,

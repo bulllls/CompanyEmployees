@@ -2,6 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="19A602" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Company" representedClassName="Company" syncable="YES">
         <attribute name="name" attributeType="String"/>
+        <attribute name="persons" optional="YES" attributeType="Transformable"/>
         <relationship name="person" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="company" inverseEntity="Person"/>
     </entity>
     <entity name="Person" representedClassName="Person" syncable="YES">
@@ -10,7 +11,7 @@
         <relationship name="company" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Company" inverseName="person" inverseEntity="Company"/>
     </entity>
     <elements>
-        <element name="Company" positionX="-63" positionY="-18" width="128" height="73"/>
+        <element name="Company" positionX="-63" positionY="-18" width="128" height="88"/>
         <element name="Person" positionX="153.11328125" positionY="-18.0390625" width="128" height="88"/>
     </elements>
 </model>
